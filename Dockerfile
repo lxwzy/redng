@@ -1,25 +1,27 @@
 FROM ubuntu
-ENV openssl_url=https://www.openssl.org/source/openssl-1.0.2n.tar.gz
+ENV OS_VERSION=openssl-1.0.2n
+ENV os_url=https://www.openssl.org/source/openssl-1.0.2n.tar.gz
+
 ENV NPS_VERSION=1.13.35.2-stable
+ENV psol_url=https://dl.google.com/dl/page-speed/psol/1.13.35.2-x64.tar.gz
+
 ENV ng_url=https://nginx.org/download/nginx-1.13.8.tar.gz
+
 RUN apt update \
-	&& apt install -y build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git wget
-RUN wget -O openssl.tar.gz -c ${openssl_url} && tar zxf openssl.tar.gz && mv openssl-1.0.2n/ openssl
+	&& apt install -y build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git wget uuid-dev
+# OpenSSL
+RUN wget -O openssl.tar.gz -c ${os_url} && tar zxf openssl.tar.gz && mv ${OS_VERSION}/ openssl
+
+# ngx_brotli
 RUN git clone --recursive https://github.com/google/ngx_brotli.git
 # cd ngx_brotli
 
 # modepagespeed
-#[check the release notes for the latest version]
 RUN wget https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}.zip&&unzip v${NPS_VERSION}.zip \
-	&&nps_dir=$(find . -name "*pagespeed-ngx-${NPS_VERSION}" -type d) \
-	&&cd "$nps_dir" \
-	&&NPS_RELEASE_NUMBER=${NPS_VERSION/stable/} \
-	&&psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_RELEASE_NUMBER}.tar.gz \
-	&&[ -e scripts/format_binary_url.sh ] && psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL) \
+	&&cd incubator-pagespeed-ngx-"$NPS_VERSION" \
 	&&wget ${psol_url} \
 	&&tar -xzvf $(basename ${psol_url}) \
 	&&cd ..
-
 
 # Nginx
 RUN wget -O nginx.tar.gz -c  ${ng_url}&&tar zxf nginx.tar.gz
