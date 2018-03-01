@@ -36,7 +36,8 @@ RUN apt purge -y  build-essential libpcre3-dev zlib1g-dev uuid-dev git \
 	&& rm -rf /var/lib/apt/lists/*
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
-	&& ln -sf /dev/stderr /var/log/nginx/access.log
+	&& ln -sf /dev/stderr /var/log/nginx/access.log \
+	&& mkdir /var/cache/ && mkdir /var/cache/nginx/
 
 EXPOSE 80
 
