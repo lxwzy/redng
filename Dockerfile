@@ -31,6 +31,7 @@ RUN apt update \
 	&&make install \
 	&& apt purge -y  build-essential libpcre3-dev zlib1g-dev uuid-dev git wget unzip \
         && apt autoremove -y \
+	&& cd / \
 	&& rm -rf ${NG_VERSION} &&rm nginx.tar.gz \
 	&& rm -rf openssl &&rm openssl.tar.gz \
 	&& rm -rf ngx_brotli \
