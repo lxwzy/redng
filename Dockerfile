@@ -9,8 +9,8 @@ ENV psol_url=https://dl.google.com/dl/page-speed/psol/1.13.35.2-x64.tar.gz
 ENV NG_VERSION=nginx-1.12.2
 ENV ng_url=https://nginx.org/download/nginx-1.12.2.tar.gz
 
-COPY 404.html /usr/share/errpg
-COPY 500.html /usr/share/errpg
+COPY 404.html /usr/share/errpg/
+COPY 500.html /usr/share/errpg/
 
 RUN apt update \
 	&&apt install -y build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git wget uuid-dev \
