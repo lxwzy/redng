@@ -1,7 +1,7 @@
 FROM ubuntu
 
-ENV OS_VERSION=openssl-1.1.1-pre4
-ENV os_url=https://www.openssl.org/source/openssl-1.1.1-pre4.tar.gz
+ENV OS_VERSION=openssl-1.1.1-pre5
+ENV os_url=https://www.openssl.org/source/openssl-1.1.1-pre5.tar.gz
 
 ENV NPS_VERSION=1.13.35.2-stable
 ENV psol_url=https://dl.google.com/dl/page-speed/psol/1.13.35.2-x64.tar.gz
