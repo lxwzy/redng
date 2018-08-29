@@ -6,8 +6,8 @@ ENV os_url=https://www.openssl.org/source/openssl-1.1.1-pre9.tar.gz
 ENV NPS_VERSION=1.13.35.2-stable
 ENV psol_url=https://dl.google.com/dl/page-speed/psol/1.13.35.2-x64.tar.gz
 
-ENV NG_VERSION=nginx-1.15.2
-ENV ng_url=https://nginx.org/download/nginx-1.15.2.tar.gz
+ENV NG_VERSION=nginx-1.15.3
+ENV ng_url=https://nginx.org/download/nginx-1.15.3.tar.gz
 
 COPY 404.html /usr/share/errpg/
 COPY 500.html /usr/share/errpg/
