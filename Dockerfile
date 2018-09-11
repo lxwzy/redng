@@ -1,7 +1,7 @@
 FROM ubuntu
 
-ENV OS_VERSION=openssl-1.1.0i
-ENV os_url=https://www.openssl.org/source/openssl-1.1.0i.tar.gz
+ENV OS_VERSION=openssl-1.1.1
+ENV os_url=https://www.openssl.org/source/openssl-1.1.1.tar.gz
 
 ENV NPS_VERSION=1.13.35.2-stable
 ENV psol_url=https://dl.google.com/dl/page-speed/psol/1.13.35.2-x64.tar.gz
@@ -23,7 +23,7 @@ RUN apt update \
 	&&cd .. \
 	&&wget -O nginx.tar.gz -c  ${ng_url}&&tar zxf nginx.tar.gz&&cd ${NG_VERSION} \
 	&&sed -i 's/\"nginx\/\" NGINX_VERSION/\"RedHome\"/g' src/core/nginx.h \
-	&&sed -i 's/\"NGINX\"/\"redhome\"/g' src/core/nginx.h \
+	&&sed -i 's/\"NGINX\"/\"RedHome\"/g' src/core/nginx.h \
 	&&sed -i 's/\"Server: nginx\"/\"Server: RedHome\"/g' src/http/ngx_http_header_filter_module.c \
 	&&sed -i 's/\"Server: \" NGINX_VER_BUILD/\"Server: RedHome\"/g' src/http/ngx_http_header_filter_module.c \
 	&&sed -i 's/\"Server: \" NGINX_VER/\"Server: RedHome\"/g' src/http/ngx_http_header_filter_module.c \
