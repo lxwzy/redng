@@ -18,8 +18,8 @@ COPY 500.html /usr/share/errpg/
 RUN apt update \
 	&&apt install -y build-essential libpcre3 libpcre3-dev zlib1g-dev unzip git wget uuid-dev \
 	&&wget -O openssl.tar.gz -c ${os_url} && tar zxf openssl.tar.gz && mv ${OS_VERSION}/ openssl \
-	&&wget -O pcre.tar.gz -c ${pcre_url} && tar zxf pcre.tar.gz && mv ${PCRE_VERSION}/ openssl \
-	&&wget -O zlib.tar.gz -c ${zlib_url} && tar zxf zlib.tar.gz && mv ${ZLIB_VERSION}/ openssl \
+	&&wget -O pcre.tar.gz -c ${pcre_url} && tar zxf pcre.tar.gz && mv ${PCRE_VERSION}/ pcre \
+	&&wget -O zlib.tar.gz -c ${zlib_url} && tar zxf zlib.tar.gz && mv ${ZLIB_VERSION}/ zlib \
 	&&git clone --recursive https://github.com/google/ngx_brotli.git \
 	&&wget -O nginx.tar.gz -c  ${ng_url}&&tar zxf nginx.tar.gz&&cd ${NG_VERSION} \
 	&&/usr/sbin/groupadd -f nginx \
