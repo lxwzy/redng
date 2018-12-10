@@ -1,7 +1,7 @@
 FROM ubuntu
 
-ENV OS_VERSION=openssl-1.1.1
-ENV os_url=https://www.openssl.org/source/openssl-1.1.1.tar.gz
+ENV OS_VERSION=openssl-1.1.1a
+ENV os_url=https://www.openssl.org/source/openssl-1.1.1a.tar.gz
 
 ENV PCRE_VERSION=pcre-8.42
 ENV pcre_url=https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.gz
@@ -9,8 +9,8 @@ ENV pcre_url=https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.gz
 ENV ZLIB_VERSION=zlib-1.2.11
 ENV zlib_url=https://zlib.net/zlib-1.2.11.tar.gz
 
-ENV NG_VERSION=nginx-1.14.1
-ENV ng_url=https://nginx.org/download/nginx-1.14.1.tar.gz
+ENV NG_VERSION=nginx-1.14.2
+ENV ng_url=https://nginx.org/download/nginx-1.14.2.tar.gz
 
 COPY 404.html /usr/share/errpg/
 COPY 500.html /usr/share/errpg/
